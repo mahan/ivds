@@ -3,9 +3,9 @@
 
 How?
 
-  1. Choose and configure your backend: Redis, ... roll your own.
-  2. Choose a collection name.
-  3. Start storing and retrieving documents.
+	1. Choose and configure your backend: Redis, ... roll your own.
+	2. Choose a collection name.
+	3. Start storing and retrieving documents.
 
 
 
@@ -39,12 +39,12 @@ is still correct for the Order Version it's referencing.
 
 Command line usage:
 
-  curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v1' localhost:3000/api/ivds/v1/invoice/10000
-  curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v2' localhost:3000/api/ivds/v1/invoice/10000
-  curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v3' localhost:3000/api/ivds/v1/invoice/10000
-  curl -sS localhost:3000/api/ivds/v1/invoice/10000
-  curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v1' localhost:3000/api/ivds/v1/invoice/10001
-  curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v2' localhost:3000/api/ivds/v1/invoice/10001
-  curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v3' localhost:3000/api/ivds/v1/invoice/10001
-  curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v4' localhost:3000/api/ivds/v1/invoice/10001
-  curl -sS localhost:3000/api/ivds/v1/currentversion/invoice/10001
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v1' localhost:3000/api/ivds/v1/invoice/10000
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v2' localhost:3000/api/ivds/v1/invoice/10000
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v3' localhost:3000/api/ivds/v1/invoice/10000
+	curl -sS localhost:3000/api/ivds/v1/invoice/10000
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v1' localhost:3000/api/ivds/v1/invoice/10001
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v2' localhost:3000/api/ivds/v1/invoice/10001
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v3' localhost:3000/api/ivds/v1/invoice/10001
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v4' localhost:3000/api/ivds/v1/invoice/10001
+	curl -sS localhost:3000/api/ivds/v1/currentversion/invoice/10001

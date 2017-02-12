@@ -27,7 +27,6 @@
     "body-parser": "^1.16.1",
     "coffee-script": "^1.12.3",
     "diff": "^3.2.0",
-    "diff-match-patch": "^1.0.0",
     "express": "^4.14.1"
   }
 }

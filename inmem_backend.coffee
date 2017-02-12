@@ -14,7 +14,7 @@ class InMemBackend extends BackendIntf
     collections = InMemBackend.collections
     unless collections[documentRef.collection]?
       collections[documentRef.collection] = {}
-    unless collections[documentRef.collection][documentRef.documentId]?
+    unless collections[documentRef.collection]?[documentRef.documentId]?
       collections[documentRef.collection][documentRef.documentId] = []
     collections[documentRef.collection][documentRef.documentId].push(documentBody)
     documentRef.version = collections[documentRef.collection][documentRef.documentId].length
@@ -36,7 +36,7 @@ class InMemBackend extends BackendIntf
 
   currentversion: (documentRef, fn) ->
     collections = InMemBackend.collections
-    unless collections[documentRef.collection][documentRef.documentId]?
+    unless collections[documentRef.collection]?[documentRef.documentId]?
       return fn('InMemBackend.currentVersion() - document not found.')
     documentRef.version = collections[documentRef.collection][documentRef.documentId].length
     return fn(null, documentRef)

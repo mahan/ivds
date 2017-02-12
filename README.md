@@ -36,8 +36,34 @@ referencing it.
 Even if the Order data was to change during the Invoice generation the Invoice
 is still correct for the Order Version it's referencing.
 
+##What is "collection" in the API?
 
-Command line usage:
+A collection is simply a namespace for one or several documentIds.
+
+This is incorporated into the API since database backends for IVDs are predicted
+to often target document databases and RDBMs, and allow mapping against natural
+counterparts there. (Such as collections or tables etc.)
+
+##HTTP requests:
+
+###POST [API_PREFIX]/:collection/:documentId
+
+This request stores a document in the database. If the id exists from before
+a new version of the document is stored.
+
+###GET [API_PREFIX]/:collection/:documentId
+
+Retrieve the latest version of the document with id :documentId.
+
+###GET [API_PREFIX]/:collection/:documentId/:version
+
+Retrieve version :version of the document with id :documentId.
+
+###GET [API_PREFIX]/currentversion//:collection/:documentId
+
+Get information about the latest version of the document with :documentId
+
+Usage examples:
 
 	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v1' localhost:3000/api/ivds/v1/invoice/10000
 	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v2' localhost:3000/api/ivds/v1/invoice/10000

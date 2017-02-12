@@ -2,7 +2,7 @@
 DocumentRef = (require './backend_intf.coffee').DocumentRef
 Backend = (require './inmem_backend.coffee').InMemBackend
 
-backend = new Backend
+backend = new Backend()
 
 express = require('express')
 bodyParser = require('body-parser')
@@ -11,7 +11,9 @@ app = express()
 app.use(bodyParser.text())
 
 r = express.Router()
-app.use('/api/ivds/v1', r)
+API_PREFIX = '/api/ivds/v1'
+API_PREFIX = ''
+app.use(API_PREFIX, r)
 #r = app.route('/api/ivds/v1')
 
 r.get '/', (req, res) ->
@@ -40,7 +42,7 @@ r.post '/:collection/:documentId', (req, res) ->
     return res.sendStatus(400)
   console.dir req.body
   backend.store new DocumentRef(req.params.collection, req.params.documentId, -1), req.body, (err, data) ->
-    if err?    
+    if err?
       return res.status(400).send(err)
     return res.send(data)
 

@@ -59,18 +59,18 @@ Retrieve the latest version of the document with id :documentId.
 
 Retrieve version :version of the document with id :documentId.
 
-###GET [API_PREFIX]/currentversion//:collection/:documentId
+###GET [API_PREFIX]/currentversion/:collection/:documentId
 
 Get information about the latest version of the document with :documentId
 
 Usage examples:
 
-	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v1' localhost:3000/api/ivds/v1/invoice/10000
-	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v2' localhost:3000/api/ivds/v1/invoice/10000
-	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v3' localhost:3000/api/ivds/v1/invoice/10000
-	curl -sS localhost:3000/api/ivds/v1/invoice/10000
-	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v1' localhost:3000/api/ivds/v1/invoice/10001
-	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v2' localhost:3000/api/ivds/v1/invoice/10001
-	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v3' localhost:3000/api/ivds/v1/invoice/10001
-	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v4' localhost:3000/api/ivds/v1/invoice/10001
-	curl -sS localhost:3000/api/ivds/v1/currentversion/invoice/10001
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v1' localhost:3000/invoice/10000
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v2' localhost:3000/invoice/10000
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is the document v3' localhost:3000/invoice/10000
+	curl -sS localhost:3000/invoice/10000
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v1' localhost:3000/invoice/10001
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v2' localhost:3000/invoice/10001
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v3' localhost:3000/invoice/10001
+	curl -sS -H "Content-Type: text/plain" -X POST -d 'This is another document v4' localhost:3000/invoice/10001
+	curl -sS localhost:3000/currentversion/invoice/10001

@@ -1,6 +1,7 @@
 
 DocumentRef = (require './backend_intf.coffee').DocumentRef
-Backend = (require './inmem_backend.coffee').InMemBackend
+#Backend = (require './inmem_backend.coffee').InMemBackend
+Backend = (require './redis_backend.coffee').RedisBackend
 
 backend = new Backend()
 

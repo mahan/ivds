@@ -37,8 +37,12 @@ class RedisBackend extends BackendIntf
           dbWork.push (fn) ->
             patch = diff.createPatch('', documentBody, data, '', '', {context: 1})
             #NX makes this fail if there is a collision, between two flows
-            r.set "#{redis_key(documentRef)}.#{oldVersion}", patch, "NX", (err) ->
-              return fn(err)
+            r.set "#{redis_key(documentRef)}.#{oldVersion}", patch, "NX", (err, data) ->
+              if err?
+                return fn(err)
+              unless data?
+                return fn("Unable to write old version. Two or more requests for storing probably collided.")
+              return fn()
         dbWork.push (fn) ->
           r.set "#{redis_key(documentRef)}.versioncounter", "#{oldVersion+1}", (err, data) ->
             return fn(err)
